@@ -1,0 +1,215 @@
+<h1 id="cs-194-26-project-2-fun-with-filters-and-frequencies">CS 194-26 Project 2: Fun with Filters and Frequencies</h1>
+
+<h2 id="overview">Overview</h2>
+<p>In this project I learned all about manipulating images using filters and frequencies.</p>
+<p> Note: I am not very familiar with html, so I was unable to put a caption on any of the images, but the images do have titles which are visible after hovering over the images.</p>
+
+<h2 id="part-1">Part 1: Fun with Filters</h2>
+
+<h3 id="part-1.1">Part 1.1: Finite Difference Operator</h3>
+<p>
+<img src="output_images/cameraman_partial_x.jpg" width="300" height="300" title="partial derivative in x">
+<img src="output_images/cameraman_partial_y.jpg" width="300" height="300" title="partial derivative in y">
+<img src="output_images/cameraman_gradient_magnitude.jpg" width="300" height="300" title="gradient magnitude">
+<img src="output_images/cameraman_edge_image.jpg" width="300" height="300" title="edge image">
+</p>
+<p>The above images show the cameraman image convolved with D_x and D_y, the gradient magnitude of the cameraman image (which is the square root of the sum of the squares of the derivatives), and the edge image (which was created using a threshold of 0.25). </p>
+
+<h3 id="part-1.2">Part 1.2: Derivative of Gaussian (DoG) Filter</h3>
+<p>
+<img src="output_images/cameraman_edge_guas_then_derivative.jpg" width="300" height="300" title="edge image after guassian blur">
+<img src="output_images/cameraman_edge_derivative_of_guas.jpg" width="300" height="300" title="edge image using DoG filter">
+<img src="output_images/cameraman_DoG_x.jpg" width="150" height="150" title="DoG_x">
+<img src="output_images/cameraman_DoG_y.jpg" width="150" height="150" title="DoG_y">
+</p>
+<p>The above images show the cameraman image blurred using a guassian filter and then binarized, the cameraman image convolved with the DoG filters, and the DoG_x and DoG_y filters themselves. </p>
+
+<h3 id="part-1.3">Part 1.3: Image Straightening</h3>
+
+<h4 id="facade-image">Facade Image</h4>
+<p>
+<img src="facade.jpg" width="300" height="300" title="original image">
+<img src="output_images/rotated_facade.jpg" width="300" height="300" title="rotated image">
+<img src="output_images/facade_hist.jpg" width="300" height="200" title="histogram">
+</p>
+<p>The above images show the original facade image, the image rotated by -3 degrees, and the corresponding histogram.</p>
+
+<h4 id="jaildoor-image">Jail Door Image</h4>
+<p>
+<img src="jaildoor.jpg" width="300" height="300" title="original image">
+<img src="output_images/rotated_jaildoor.jpg" width="300" height="300" title="rotated image">
+<img src="output_images/jaildoor_hist.jpg" width="300" height="200" title="histogram">
+</p>
+<p>The above images show the original jail door image, the image rotated by -3 degrees, and the corresponding histogram.</p>
+
+<h4 id="angled-lines-image">Angled Lines Image</h4>
+<p>
+<img src="angled_lines.jpg" width="300" height="300" title="original image">
+<img src="output_images/rotated_angled_lines.jpg" width="300" height="300" title="rotated image">
+<img src="output_images/angled_lines_hist.jpg" width="300" height="200" title="histogram">
+</p>
+<p>The above images show the original angled lines image, the image rotated by -6 degrees, and the corresponding histogram.</p>
+
+<h4 id="warped-building-image">Warped Building Image</h4>
+<p>
+<img src="warped_building.jpg" width="300" height="300" title="original image">
+<img src="output_images/rotated_warped_building.jpg" width="300" height="300" title="rotated image">
+<img src="output_images/warped_building_hist.jpg" width="300" height="200" title="histogram">
+</p>
+<p>The above images show the original warped building image, the image rotated by -10 degrees, and the corresponding histogram. This was my failure case; the warped building didn't really have any prominent horizontal or vertical lines, so my algorithm tried its best, but in the end the image would have looked better if it wasn't rotated.</p>
+
+<h2 id="part-2">Part 2: Fun with Frequencies</h2>
+<h3 id="part-2.1">Part 2.1: Image "Sharpening"</h3>
+
+<h4 id="taj-image">Taj Mahal Image</h4>
+<p>
+<img src="taj.jpg" width="300" height="300" title="original image">
+<img src="output_images/sharpened_taj.jpg" width="300" height="300" title="sharpened image">
+</p>
+<p>The above images show the original taj mahal image followed by the sharpened image using the unsharp mask filter.</p>
+
+<h4 id="parrot-image">Parrot Image</h4>
+<p>
+<img src="parrot.jpg" width="400" height="300" title="original image">
+<img src="output_images/sharpened_parrot.jpg" width="400" height="300" title="sharpened image">
+</p>
+
+<h4 id="fly-image">Fly Image</h4>
+<p>
+<img src="fly.jpg" width="300" height="300" title="original image">
+<img src="output_images/sharpened_fly.jpg" width="300" height="300" title="sharpened image">
+</p>
+
+<h4 id="leaf-image">Leaf Image</h4>
+<p>
+<img src="leaf.jpg" width="400" height="300" title="original image">
+<img src="output_images/blurred_leaf.jpg" width="400" height="300" title="blurred image">
+<img src="output_images/sharpened_leaf.jpg" width="400" height="300" title="sharpened image">
+</p>
+<p>The above images show the original leaf image, the image blurred using using a 3 x 3 guassian kernel with sigma = 2, and the image resharpened using the unsharp mask filter. As seen above, the sharpenned image looks better than the blurred image, but still not as sharp as the original image. This is because blurring got rid of some of the image's highest frequencies, which we can't get back by sharpening; however, sharpenning does increase the amount of high frequencies already in the blurred photo, which is why the resharpened image looks better than the blurred image.</p>
+
+<h3 id="part-2.2">Part 2.2: Hybrid Images</h3>
+
+<h4 id="lykan_720s">Lykan Hypersport and Mclaren 720s Hybrid Image</h4>
+<p>
+<img src="lykan.jpg" width="400" height="200" title="original image">
+<img src="720s.jpg" width="400" height="200" title="original image">
+<img src="output_images/lykan_720s.jpg" width="400" height="200" title="hybrid image">
+</p>
+<p>The above images show the two original images: one of a Lykan Hypersport and one of a Mclaren 720s, followed by the resulting hybrid image using the high frequencies from the Lykan and the low frequencies from the 720s. The resulting FFT plots are shown below. Hover over each image to view its title.</p>
+<p>
+<img src="output_images/fft1.jpg" width="400" height="300" title="Mclaren 720s - FFT for Low Pass Input">
+<img src="output_images/fft2.jpg" width="400" height="300" title="Lykan Hypersport - FFT for High Pass Input">
+<img src="output_images/fft3.jpg" width="400" height="300" title="Mclaren 720s - FFT After Low Pass Input">
+<img src="output_images/fft4.jpg" width="400" height="300" title="Lykan Hypersport - FFT After High Pass Input">
+<img src="output_images/fft5.jpg" width="400" height="300" title="FFT for Merged Image">
+</p>
+
+<h4 id="tiger_fox">Tiger and Fox Hybrid Image</h4>
+<p>
+<img src="tiger.jpg" width="300" height="300" title="original image">
+<img src="fox.jpg" width="400" height="300" title="original image">
+<img src="output_images/tiger_fox.jpg" width="400" height="300" title="hybrid image">
+</p>
+<p>The above images show the two original images: one of a tiger and one of a baby fox, followed by the resulting hybrid image using the high frequencies from the tiger and the low frequencies from the fox.</p>
+
+<h4 id="hybrid-fail">Ping Pong Ball and Basketball Hybrid Image</h4>
+<p>
+<img src="pingpongball.jpg" width="300" height="300" title="original image">
+<img src="basketball.jpg" width="400" height="300" title="original image">
+<img src="output_images/hybrid_fail.jpg" width="400" height="300" title="hybrid image">
+</p>
+<p>The above hybrid image is my attempt to make a hybrid image with a ping pong ball and a basketball. I wanted to used the ping pong ball as the higher frequency image, but this image failed because the ping pong ball doesn't have any high frequencies other than it's edges. Therefore the result just looks like a circle with a very blurry basketball inside it</p>
+
+<h3 id="part-2.3">Part 2.3: Gaussian and Laplacian Stacks</h3>
+
+<h4 id="lincoln">Lincoln Guassian and Laplacian Stacks</h4>
+<p>
+<img src="lincoln.jpg" width="150" height="200" title="original image">
+<img src="output_images/lincoln_guas_0.jpg" width="150" height="200">
+<img src="output_images/lincoln_guas_1.jpg" width="150" height="200">
+<img src="output_images/lincoln_guas_2.jpg" width="150" height="200">
+<img src="output_images/lincoln_guas_3.jpg" width="150" height="200">
+<img src="output_images/lincoln_guas_4.jpg" width="150" height="200">
+</p>
+<p>The above images are the original Lincoln image followed by its guassian stack. The images below are the Lincoln image's laplacian stack.</p>
+<p>
+<img src="lincoln.jpg" width="150" height="200" title="original image">
+<img src="output_images/lincoln_lap_0.jpg" width="150" height="200">
+<img src="output_images/lincoln_lap_1.jpg" width="150" height="200">
+<img src="output_images/lincoln_lap_2.jpg" width="150" height="200">
+<img src="output_images/lincoln_lap_3.jpg" width="150" height="200">
+<img src="output_images/lincoln_lap_4.jpg" width="150" height="200">
+</p>
+
+<h4 id="lykan-720s-stacks">Lykan Hypersport and Mclaren 720s Hybrid Guassian and Laplacian Stacks</h4>
+<p>
+<img src="output_images/lykan_720s.jpg" width="250" height="125" title="original hybrid image">
+<img src="output_images/cars_guas_0.jpg" width="250" height="125">
+<img src="output_images/cars_guas_1.jpg" width="250" height="125">
+<img src="output_images/cars_guas_2.jpg" width="250" height="125">
+<img src="output_images/cars_guas_3.jpg" width="250" height="125">
+<img src="output_images/cars_guas_4.jpg" width="250" height="125">
+</p>
+<p>The above images are the original hybrid image followed by its guassian stack. The images below are the hybrid image's laplacian stack.</p>
+<p>
+<img src="output_images/lykan_720s.jpg" width="250" height="125" title="original hybrid image">
+<img src="output_images/cars_lap_0.jpg" width="250" height="125">
+<img src="output_images/cars_lap_1.jpg" width="250" height="125">
+<img src="output_images/cars_lap_2.jpg" width="250" height="125">
+<img src="output_images/cars_lap_3.jpg" width="250" height="125">
+<img src="output_images/cars_lap_4.jpg" width="250" height="125">
+</p>
+
+<h3 id="part-2.4">Part 2.4: Multiresolution Blending</h3>
+
+<h4 id="oraple">Oraple</h4>
+<p>
+<img src="apple.jpeg" width="300" height="300" title="original image">
+<img src="orange.jpeg" width="300" height="300" title="original image">
+<img src="output_images/orple.jpg" width="300" height="300" title="blended image">
+<img src="mask1.jpg" width="300" height="300" title="blending mask">
+</p>
+<p>The above images show the two images to be blended: an apple and an orange, followed by the resulting blended image and the mask used for the blending </p>
+
+<h4 id="ny">New York During the Day and Night Blended</h4>
+<p>
+<img src="new_york_night.jpg" width="400" height="300" title="original image">
+<img src="new_york_day.jpg" width="400" height="300" title="original image">
+<img src="output_images/ny_final.jpg" width="400" height="300" title="blended image">
+<img src="mask1.jpg" width="400" height="300" title="blending mask">
+</p>
+<p>The above images show the two images to be blended: New York during the night and New York during the day, followed by the resulting blended image and the mask used for the blending </p>
+<h5 id="ny-night-lap">New York During the Night Laplacian Stack</h5>
+<p>
+<img src="output_images/ny_night_lap_0.jpg" width="200" height="150">
+<img src="output_images/ny_night_lap_1.jpg" width="200" height="150">
+<img src="output_images/ny_night_lap_2.jpg" width="200" height="150">
+<img src="output_images/ny_night_lap_3.jpg" width="200" height="150">
+<img src="output_images/ny_night_lap_4.jpg" width="200" height="150">
+</p>
+<h5 id="ny-night-lap">New York During the Day Laplacian Stack</h5>
+<p>
+<img src="output_images/ny_day_lap_0.jpg" width="200" height="150">
+<img src="output_images/ny_day_lap_1.jpg" width="200" height="150">
+<img src="output_images/ny_day_lap_2.jpg" width="200" height="150">
+<img src="output_images/ny_day_lap_3.jpg" width="200" height="150">
+<img src="output_images/ny_day_lap_4.jpg" width="200" height="150">
+</p>
+<h5 id="ny-night-lap">New York During the Day and Night Combined Laplacian Stack</h5>
+<p>
+<img src="output_images/ny_combined_1.jpg" width="200" height="150">
+<img src="output_images/ny_combined_2.jpg" width="200" height="150">
+<img src="output_images/ny_combined_3.jpg" width="200" height="150">
+<img src="output_images/ny_combined_4.jpg" width="200" height="150">
+<img src="output_images/ny_combined_5.jpg" width="200" height="150">
+</p>
+
+<h4 id="ufo-mountains">UFO in the Mountains</h4>
+<p>
+<img src="ufo.jpg" width="400" height="300" title="original image">
+<img src="mountains.jpg" width="400" height="300" title="original image">
+<img src="output_images/ufo_in_mountains.jpg" width="400" height="300" title="blended image">
+<img src="mask2.jpg" width="400" height="300" title="blending mask">
+</p>
+<p>The above images show the two images to be blended with an irregular mask. The resulting image is a UFO flying through the mountains.</p>
